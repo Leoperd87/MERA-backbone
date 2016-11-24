@@ -1,0 +1,38 @@
+.tabs {
+  padding: 10px;
+
+  .nav {
+    border-bottom: 1px solid black;
+
+    li {
+      float: left;
+      border-bottom: 1px solid black;
+      margin: 0 5px -1px;
+
+      &.active {
+        border-bottom-color: white;
+      }
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .tab {
+    border: 1px solid black;
+    border-bottom: none;
+    background: white;
+    border-radius: 5px 5px 0 0;
+    padding: 10px;
+  }
+
+  .container {
+    padding: 10px;
+    border: 1px solid black;
+    border-top: 0;
+    background: white;
+  }
+}

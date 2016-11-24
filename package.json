@@ -1,0 +1,31 @@
+{
+  "name": "mera-backbone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "webpack -p --define process.env.NODE_ENV='\"production\"'",
+    "start": "webpack-dev-server --port 8081"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.dej.in.ua:fima/mera-backbon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "6.18.2",
+    "babel-loader": "6.2.8",
+    "backbone": "1.3.3",
+    "css-loader": "0.26.0",
+    "html-webpack-plugin": "2.24.1",
+    "jquery": "3.1.1",
+    "less": "2.7.1",
+    "less-loader": "2.2.3",
+    "normalize.css": "5.0.0",
+    "style-loader": "0.13.1",
+    "underscore": "1.8.3",
+    "webpack": "1.13.3",
+    "webpack-dev-server": "1.16.2"
+  }
+}
