@@ -16,7 +16,7 @@ module.exports = Backbone.View.extend({
   initialize: function () {
 
     this.tabsComponent = new TabsComponent({
-      collection: DataFacade.getTabsCollection()
+      collection: DataFacade.getInstance().getTabsCollection()
     });
 
     this.$el.append(this.tabsComponent.render().$el);

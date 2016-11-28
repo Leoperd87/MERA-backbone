@@ -11,7 +11,7 @@ module.exports = function () {
     tagName: 'div',
     render: function () {
       this.textArea_ = new TextAreaComponent({
-        model: DataFacade.getTab2TextModel()
+        model: DataFacade.getInstance().getTab2TextModel()
       });
       this.$el.append(this.textArea_.render().$el);
 
@@ -19,7 +19,7 @@ module.exports = function () {
         title: 'Show popup',
         cb: (function() {
           this.alert_ = new AlertComponent({
-            model: DataFacade.getTab2TextModel()
+            model: DataFacade.getInstance().getTab2TextModel()
           });
           Backbone.$('body').append(this.alert_.render().$el);
         }).bind(this)

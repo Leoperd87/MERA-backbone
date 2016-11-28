@@ -2,6 +2,8 @@
  * Created by fima on 28/11/16.
  */
 
+var u = require('./utils');
+
 var TextModel = require('./models/Text');
 var TabModel = require('./models/Tab');
 var TabsCollection = require('./collections/Tabs');
@@ -10,9 +12,10 @@ var tab1 = require('./tabs/tab1');
 var tab2 = require('./tabs/tab2');
 
 var DataFacade = function() {};
+u.addSingletonGetter(DataFacade);
 
 DataFacade.prototype.getTab1TextModel = function() {
-  if (!this.tab1TextModel_) {
+  if (!u.isDef(this.tab1TextModel_)) {
     this.tab1TextModel_ = new TextModel({
       text: 'Hello world! ' + (new Date())
     });
@@ -25,7 +28,7 @@ DataFacade.prototype.getTab1TextModel = function() {
 };
 
 DataFacade.prototype.getTab2TextModel = function() {
-  if (!this.tab2TextModel_) {
+  if (!u.isDef(this.tab2TextModel_)) {
     this.tab2TextModel_ = new TextModel({
       text: 'some text'
     });
@@ -34,7 +37,7 @@ DataFacade.prototype.getTab2TextModel = function() {
 };
 
 DataFacade.prototype.getTabsCollection = function() {
-  if (!this.tabs_) {
+  if (!u.isDef(this.tabs_)) {
     this.tabs_ = new TabsCollection([
       new TabModel({
         title: 'TAB 1',
@@ -49,4 +52,4 @@ DataFacade.prototype.getTabsCollection = function() {
   return this.tabs_;
 };
 
-module.exports = new DataFacade();
+module.exports = DataFacade;

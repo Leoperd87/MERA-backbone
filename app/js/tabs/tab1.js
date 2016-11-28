@@ -6,6 +6,6 @@ var TextComponent = require('../widgets/Text');
 
 module.exports = function () {
   return new TextComponent({
-    model: DataFacade.getTab1TextModel()
+    model: DataFacade.getInstance().getTab1TextModel()
   })
 };

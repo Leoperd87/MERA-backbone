@@ -10,5 +10,11 @@ module.exports = {
       }
       return ctor.instance_ = new ctor;
     };
+  },
+  isDefAndNotNull: function (val) {
+    return val != null;
+  },
+  isDef: function(val) {
+    return val !== void 0;
   }
 };
