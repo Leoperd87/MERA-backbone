@@ -4,7 +4,7 @@
 
 module.exports = Backbone.View.extend({
   tagName: 'button',
-  className: 'btn',
+  className: '___btn__',
   events:{
     'click': 'go'
   },

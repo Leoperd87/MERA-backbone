@@ -1,5 +1,6 @@
 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CssRenameWebpackPlugin = require('cssrename-webpack-plugin');
 const webpack = require('webpack');
 
 var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
@@ -12,6 +13,8 @@ var ProvidePluginConfig = new webpack.ProvidePlugin({
   _:              'underscore',
   Backbone:       'backbone'
 });
+
+var CssRenameWebpackPluginConfig = new CssRenameWebpackPlugin();
 
 module.exports = {
   entry: {
@@ -35,13 +38,14 @@ module.exports = {
 
       {
         test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader?config=lessLoaderCustom"
+        loader: "style-loader!css-loader!cssrename-loader!less-loader?config=lessLoaderCustom"
       }
     ]
   },
 
   plugins: [
     HTMLWebpackPluginConfig,
-    ProvidePluginConfig
+    ProvidePluginConfig,
+    CssRenameWebpackPluginConfig
   ]
 };

@@ -4,26 +4,26 @@
 
 module.exports = Backbone.View.extend({
   tagName: 'div',
-  className: 'tabs',
+  className: '___tabs__',
 
   template: _.template(
-    '<ul class="nav">' +
+    '<ul class="___nav__">' +
     '  <% _.each(models, function(model, modelId) { %>' +
-    '    <li<%= (modelId == currentTabId ? \' class="active"\' : "") %>>' +
+    '    <li<%= (modelId == currentTabId ? \' class="___active__"\' : "") %>>' +
     '      <button ' +
     '        data-id="<%= modelId %>"' +
-    '        class="tab"' +
+    '        class="___tab__"' +
     '        >' +
     '        <%= model.title %>' +
     '      </button>' +
     '    </li>' +
     '  <% }); %>' +
     '</ul>' +
-    '<div class="container"></div>'
+    '<div class="___container__"></div>'
   ),
 
   events: {
-    "click .nav button": "setPage"
+    "click .___nav__ button": "setPage"
   },
 
   initialize: function () {
@@ -35,15 +35,15 @@ module.exports = Backbone.View.extend({
       models: this.collection.toJSON(),
       currentTabId: this.collection.getCheckedId()
     }));
-    this.container_ = this.$el.find('.container');
+    this.container_ = this.$el.find('.___container__');
     this.view_ = this.collection.getChecked().get('view')();
     this.container_.append(this.view_.render().$el);
     return this;
   },
   setPage: function(event) {
     var el = this.$(event.target);
-    this.$('.nav li.active').removeClass('active');
-    el.parent().addClass('active');
+    this.$('.___nav__ li.___active__').removeClass('___active__');
+    el.parent().addClass('___active__');
     var newId = parseInt(el.data('id'));
     if (this.collection.setChecked(newId)) {
       this.view_.close();

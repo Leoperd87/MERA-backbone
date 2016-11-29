@@ -5,9 +5,9 @@ var ButtonComponent = require('./Button');
 
 module.exports = Backbone.View.extend({
   tagName: 'div',
-  className: 'alert-box',
+  className: '___alert-box__',
   template: _.template(
-    '<div class="alert-block"><div class="alert-message"><%= text %></div></div>'
+    '<div class="___alert-block__"><div class="___alert-message__"><%= text %></div></div>'
   ),
   render: function () {
     this.$el.html(this.template(this.model.toJSON()));
@@ -15,7 +15,7 @@ module.exports = Backbone.View.extend({
       title: 'OK',
       cb: this.close.bind(this)
     });
-    this.$el.find('.alert-block').append(this.button_.render().$el);
+    this.$el.find('.___alert-block__').append(this.button_.render().$el);
     return this;
   },
   close: function(){
